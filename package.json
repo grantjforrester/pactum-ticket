@@ -1,0 +1,19 @@
+{
+  "name": "pactum-ticket",
+  "version": "0.1.0",
+  "description": "REST API testing exercise written with PactumJS",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grantjforrester/pactum-ticket.git"
+  },
+  "author": "https://github.com/grantjforrester",
+  "license": "MIT",
+  "homepage": "https://github.com/grantjforrester/pactum-ticket#readme",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "pactum": "^3.5.1"
+  }
+}
