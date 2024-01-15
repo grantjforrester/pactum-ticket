@@ -1,18 +1,22 @@
 # pactum-ticket
 
-Api testing exercise written with PactumJS
+Api testing exercise written with PactumJS.
 
 ## Running Tests
 
-Start server
+1. Start database.
 
-Install test dependecies:
+2. Start server.
+
+3. Ensure test settings are correct in [`.env`](/.env)
+
+4. Install test dependecies:
 
 ```
 npm install
 ```
 
-Run tests:
+5. Run tests:
 
 ```
 npm run test

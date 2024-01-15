@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
-    server: "http://localhost:8080"
+    server: `http://${process.env.API_HOST}:${process.env.API_PORT}`
 }
