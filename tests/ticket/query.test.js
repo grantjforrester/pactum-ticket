@@ -100,6 +100,42 @@ describe('query', () => {
                     size: 3
                 })
         })
+
+        it('should return error if invalid sort direction', async () => {
+            await spec()
+                .get(`${config.server}/api/v1/tickets?sort=summary+res`)
+                .expectStatus(400)
+                .expectJsonMatch({
+                    type: "induction:go:err:badrequest",
+                    title: "Bad Request",
+                    status: 400,
+                    detail: "invalid sort: summary res"
+                })
+        })
+
+        it('should return error if sort field not found', async () => {
+            await spec()
+                .get(`${config.server}/api/v1/tickets?sort=foo+asc`)
+                .expectStatus(400)
+                .expectJsonMatch({
+                    type: "induction:go:err:badrequest",
+                    title: "Bad Request",
+                    status: 400,
+                    detail: "invalid sort field: foo"
+                })
+        })
+
+        it('should return error if sort field not supported', async () => {
+            await spec()
+                .get(`${config.server}/api/v1/tickets?sort=id+asc`)
+                .expectStatus(400)
+                .expectJsonMatch({
+                    type: "induction:go:err:badrequest",
+                    title: "Bad Request",
+                    status: 400,
+                    detail: "invalid sort field: id"
+                })
+        })
     })
 
     describe("filtering", () => {
@@ -127,6 +163,54 @@ describe('query', () => {
                     ],
                     page: 1,
                     size: 2
+                })
+        })
+
+        it('should return error if filter field not found', async () => {
+            await spec()
+                .get(`${config.server}/api/v1/tickets?filter=summary%25%25summary1`)
+                .expectStatus(400)
+                .expectJsonMatch({
+                    type: "induction:go:err:badrequest",
+                    title: "Bad Request",
+                    status: 400,
+                    detail: "invalid filter: summary%%summary1"
+                })
+        })
+
+        it('should return error if filter field not supported', async () => {
+            await spec()
+                .get(`${config.server}/api/v1/tickets?filter=id%21%3Dsummary1`)
+                .expectStatus(400)
+                .expectJsonMatch({
+                    type: "induction:go:err:badrequest",
+                    title: "Bad Request",
+                    status: 400,
+                    detail: "invalid filter field: id"
+                })
+        })
+
+        it('should return error if filter operator not supported', async () => {
+            await spec()
+                .get(`${config.server}/api/v1/tickets?filter=summary%25%25summary1`)
+                .expectStatus(400)
+                .expectJsonMatch({
+                    type: "induction:go:err:badrequest",
+                    title: "Bad Request",
+                    status: 400,
+                    detail: "invalid filter: summary%%summary1"
+                })
+        })
+
+        it('should return error if filter operator not valid for type', async () => {
+            await spec()
+                .get(`${config.server}/api/v1/tickets?filter=summary%3Esummary1`)
+                .expectStatus(400)
+                .expectJsonMatch({
+                    type: "induction:go:err:badrequest",
+                    title: "Bad Request",
+                    status: 400,
+                    detail: "invalid filter operator: >"
                 })
         })
     })
