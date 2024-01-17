@@ -154,7 +154,7 @@ describe('query', () => {
 
         it('should return tickets not matching summary field', async () => {
             await spec()
-                .get(`${config.server}/api/v1/tickets?filter=summary%21%3Dsummary1`)
+                .get(`${config.server}/api/v1/tickets?filter=summary%21%3Dsummary1&sort=summary+asc`)
                 .expectStatus(200)
                 .expectJsonMatch({
                     results: [
