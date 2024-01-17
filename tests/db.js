@@ -1,7 +1,5 @@
 const { Pool } = require('pg')
 
-
-
 async function reset() {
     const connectionString = 'postgresql://'
         + process.env.PGUSER + ':'
