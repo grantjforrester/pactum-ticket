@@ -106,7 +106,7 @@ describe('query', () => {
                 .get(`${config.server}/api/v1/tickets?sort=summary+res`)
                 .expectStatus(400)
                 .expectJsonMatch({
-                    type: "induction:go:err:badrequest",
+                    type: "ticket:err:badrequest",
                     title: "Bad Request",
                     status: 400,
                     detail: "invalid sort: summary res"
@@ -118,7 +118,7 @@ describe('query', () => {
                 .get(`${config.server}/api/v1/tickets?sort=foo+asc`)
                 .expectStatus(400)
                 .expectJsonMatch({
-                    type: "induction:go:err:badrequest",
+                    type: "ticket:err:badrequest",
                     title: "Bad Request",
                     status: 400,
                     detail: "invalid sort field: foo"
@@ -130,7 +130,7 @@ describe('query', () => {
                 .get(`${config.server}/api/v1/tickets?sort=id+asc`)
                 .expectStatus(400)
                 .expectJsonMatch({
-                    type: "induction:go:err:badrequest",
+                    type: "ticket:err:badrequest",
                     title: "Bad Request",
                     status: 400,
                     detail: "invalid sort field: id"
@@ -171,7 +171,7 @@ describe('query', () => {
                 .get(`${config.server}/api/v1/tickets?filter=summary%25%25summary1`)
                 .expectStatus(400)
                 .expectJsonMatch({
-                    type: "induction:go:err:badrequest",
+                    type: "ticket:err:badrequest",
                     title: "Bad Request",
                     status: 400,
                     detail: "invalid filter: summary%%summary1"
@@ -183,7 +183,7 @@ describe('query', () => {
                 .get(`${config.server}/api/v1/tickets?filter=id%21%3Dsummary1`)
                 .expectStatus(400)
                 .expectJsonMatch({
-                    type: "induction:go:err:badrequest",
+                    type: "ticket:err:badrequest",
                     title: "Bad Request",
                     status: 400,
                     detail: "invalid filter field: id"
@@ -195,7 +195,7 @@ describe('query', () => {
                 .get(`${config.server}/api/v1/tickets?filter=summary%25%25summary1`)
                 .expectStatus(400)
                 .expectJsonMatch({
-                    type: "induction:go:err:badrequest",
+                    type: "ticket:err:badrequest",
                     title: "Bad Request",
                     status: 400,
                     detail: "invalid filter: summary%%summary1"
@@ -207,7 +207,7 @@ describe('query', () => {
                 .get(`${config.server}/api/v1/tickets?filter=summary%3Esummary1`)
                 .expectStatus(400)
                 .expectJsonMatch({
-                    type: "induction:go:err:badrequest",
+                    type: "ticket:err:badrequest",
                     title: "Bad Request",
                     status: 400,
                     detail: "invalid filter operator: >"

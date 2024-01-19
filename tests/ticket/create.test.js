@@ -37,7 +37,7 @@ describe('create', () => {
             })
             .expectStatus(400)
             .expectJsonMatch({
-                type: "induction:go:err:badrequest",
+                type: "ticket:err:badrequest",
                 title: "Bad Request",
                 status: 400,
                 detail: "missing field: status"
@@ -54,7 +54,7 @@ describe('create', () => {
             })
             .expectStatus(400)
             .expectJsonMatch({
-                type: "induction:go:err:badrequest",
+                type: "ticket:err:badrequest",
                 title: "Bad Request",
                 status: 400,
                 detail: "invalid type for field: status"

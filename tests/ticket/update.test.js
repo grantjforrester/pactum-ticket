@@ -52,7 +52,7 @@ describe('update', () => {
             })
             .expectStatus(400)
             .expectJsonMatch({
-                type: "induction:go:err:badrequest",
+                type: "ticket:err:badrequest",
                 title: "Bad Request",
                 status: 400,
                 detail: "invalid ticket id: doesnotexist"
@@ -71,7 +71,7 @@ describe('update', () => {
             })
             .expectStatus(404)
             .expectJsonMatch({
-                type: "induction:go:err:notfound",
+                type: "ticket:err:notfound",
                 title: "Not Found",
                 status: 404,
                 detail: "no ticket with id 99999999-9999-9999-9999-999999999999 found"
@@ -100,7 +100,7 @@ describe('update', () => {
             })
             .expectStatus(400)
             .expectJsonMatch({
-                type: "induction:go:err:badrequest",
+                type: "ticket:err:badrequest",
                 title: "Bad Request",
                 status: 400,
                 detail: "missing field: status"
@@ -130,7 +130,7 @@ describe('update', () => {
             })
             .expectStatus(400)
             .expectJsonMatch({
-                type: "induction:go:err:badrequest",
+                type: "ticket:err:badrequest",
                 title: "Bad Request",
                 status: 400,
                 detail: "invalid type for field: status"
@@ -161,7 +161,7 @@ describe('update', () => {
             })
             .expectStatus(400)
             .expectJsonMatch({
-                type: "induction:go:err:badrequest",
+                type: "ticket:err:badrequest",
                 title: "Bad Request",
                 status: 400,
                 detail: "missing field: version"
@@ -193,7 +193,7 @@ describe('update', () => {
             })
             .expectStatus(400)
             .expectJsonMatch({
-                type: "induction:go:err:badrequest",
+                type: "ticket:err:badrequest",
                 title: "Bad Request",
                 status: 400,
                 detail: "invalid type for field: version"
@@ -226,7 +226,7 @@ describe('update', () => {
             })
             .expectStatus(409)
             .expectJsonMatch({
-                type: "induction:go:err:conflict",
+                type: "ticket:err:conflict",
                 title: "Conflict",
                 status: 409,
                 detail: "version conflict"

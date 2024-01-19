@@ -41,7 +41,7 @@ describe('read', () => {
             .withPathParams("id", "doesnotexist")
             .expectStatus(400)
             .expectJsonMatch({
-                type: "induction:go:err:badrequest",
+                type: "ticket:err:badrequest",
                 title: "Bad Request",
                 status: 400,
                 detail: "invalid ticket id: doesnotexist"
@@ -55,7 +55,7 @@ describe('read', () => {
             .withPathParams("id", "99999999-9999-9999-9999-999999999999")
             .expectStatus(404)
             .expectJsonMatch({
-                type: "induction:go:err:notfound",
+                type: "ticket:err:notfound",
                 title: "Not Found",
                 status: 404,
                 detail: "no ticket with id 99999999-9999-9999-9999-999999999999 found"
