@@ -19,5 +19,6 @@ npm install
 5. Run tests:
 
 ```
+export $(grep -v '^#' .env | xargs)
 npm run test
 ```
