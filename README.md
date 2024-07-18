@@ -4,19 +4,17 @@ Api testing exercise written with PactumJS.
 
 ## Running Tests
 
-1. Start database.
+1. Start application and any dependencies.
 
-2. Start server.
+2. Ensure test values are correct in [`.env`](/.env)
 
-3. Ensure test settings are correct in [`.env`](/.env)
-
-4. Install test dependecies:
+3. Install test dependecies:
 
 ```
 npm install
 ```
 
-5. Run tests:
+4. Run tests:
 
 ```
 export $(grep -v '^#' .env | xargs)
