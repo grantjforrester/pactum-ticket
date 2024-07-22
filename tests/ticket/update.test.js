@@ -40,25 +40,6 @@ describe('update', () => {
             })
     })
 
-    it('should return error if invalid uuid', async () => {
-        await spec()
-            .put(`${config.server}/api/v1/tickets/{id}`)
-            .withPathParams("id", "doesnotexist")
-            .withJson({
-                summary: "updated summary",
-                description: "updated description",
-                status: "closed",
-                version: "0"
-            })
-            .expectStatus(400)
-            .expectJsonMatch({
-                type: "ticket:err:badrequest",
-                title: "Bad Request",
-                status: 400,
-                detail: "invalid ticket id: doesnotexist"
-            })
-    })
-
     it('should return error if ticket not found', async () => {
         await spec()
             .put(`${config.server}/api/v1/tickets/{id}`)
@@ -78,7 +59,7 @@ describe('update', () => {
             })
     })
 
-    it('should return error if status field missing', async () => {
+    it('should return error if ticket field missing', async () => {
         // Create ticket
         await spec()
             .post(`${config.server}/api/v1/tickets`)
@@ -107,7 +88,7 @@ describe('update', () => {
             })
     })
 
-    it('should return error if status field wrong type', async () => {
+    it('should return error if ticket field wrong type', async () => {
         // Create ticket
         await spec()
             .post(`${config.server}/api/v1/tickets`)

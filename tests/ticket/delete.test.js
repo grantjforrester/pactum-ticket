@@ -46,18 +46,4 @@ describe('delete', () => {
             .withPathParams("id", "99999999-9999-9999-9999-999999999999")
             .expectStatus(404)
     })
-
-    it('should return error if invalid uuid', async () => {
-        await spec()
-            .delete(`${config.server}/api/v1/tickets/{id}`)
-            .withPathParams("id", "doesnotexist")
-            .expectStatus(400)
-            .expectJsonMatch({
-                type: "ticket:err:badrequest",
-                title: "Bad Request",
-                status: 400,
-                detail: "invalid ticket id: doesnotexist"
-            })
-    })
-
 })

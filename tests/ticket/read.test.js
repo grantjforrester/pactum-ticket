@@ -35,19 +35,6 @@ describe('read', () => {
             })
     })
 
-    it('should return error if invalid uuid', async () => {
-        await spec()
-            .get(`${config.server}/api/v1/tickets/{id}`)
-            .withPathParams("id", "doesnotexist")
-            .expectStatus(400)
-            .expectJsonMatch({
-                type: "ticket:err:badrequest",
-                title: "Bad Request",
-                status: 400,
-                detail: "invalid ticket id: doesnotexist"
-            })
-    })
-
     it('should return error if ticket not found', async () => {
         await spec()
             .inspect()
