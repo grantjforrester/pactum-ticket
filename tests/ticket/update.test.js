@@ -78,7 +78,7 @@ describe('update', () => {
             })
     })
 
-    it('should return error if ticket field missing', async () => {
+    it('should return error if status field missing', async () => {
         // Create ticket
         await spec()
             .post(`${config.server}/api/v1/tickets`)
@@ -107,7 +107,7 @@ describe('update', () => {
             })
     })
 
-    it('should return error if ticket field wrong type', async () => {
+    it('should return error if status field wrong type', async () => {
         // Create ticket
         await spec()
             .post(`${config.server}/api/v1/tickets`)
